@@ -39,7 +39,7 @@ nav ul li a {
 
 /* Banner Styles */
 .banner {
-    background: url('images/banner.jpg') no-repeat center center/cover;
+    background: url('images/banner_nature.jpg') no-repeat center center/cover;
     padding: 80px;
     color: white;
 }
