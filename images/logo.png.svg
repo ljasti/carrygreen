@@ -1,0 +1,5 @@
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="40" font-family="Arial" font-size="35" fill="darkgreen">Carry</text>
+  <text x="90" y="40" font-family="Arial" font-size="35" fill="forestgreen">GREEN</text>
+  <text x="190" y="70" font-family="Verdana" font-size="20" fill="white" transform="rotate(0 190,70)">life</text>
+</svg>
