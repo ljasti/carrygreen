@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Banner Styles */
+.banner {
+    background: url('images/banner.jpg') no-repeat center center/cover;
+    padding: 80px;
+    color: white;
+}
+
+.btn {
+    background: #ff9800;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* About Section */
+#about {
+    padding: 40px 20px;
+}
+
+/* Products Section */
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Testimonials Section */
+#testimonials blockquote {
+    font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+}
