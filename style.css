@@ -58,6 +58,8 @@ nav ul li a:hover {
 .product-container {
     display: flex;
 }
+
+/* Additional Styles */
 .product img {
-   width:auto
+   width:auto; /* Fixed missing semicolon */
 }
