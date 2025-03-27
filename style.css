@@ -1,10 +1,12 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Modern font */
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9; /* Lighter background */
+    color: #333; /* Darker text for better readability */
+    line-height: 1.6;
 }
 
 /* Header Styles */
@@ -12,13 +14,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #4CAF50;
+    background: #fff; /* White header */
     padding: 20px;
-    color: white;
+    color: #333; /* Dark text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
 .logo img {
-    height: 50px;
+    height: 60px; /* Larger logo */
 }
 
 nav ul {
@@ -33,52 +36,140 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    color: #555; /* Slightly darker nav links */
+    font-weight: 500;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+nav ul li a:hover {
+    color: #4CAF50; /* Green hover */
 }
 
 /* Banner Styles */
 .banner {
     background: url('images/banner_nature.jpg') no-repeat center center/cover;
-    padding: 80px;
+    padding: 120px 20px; /* Increased padding */
     color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Text shadow for better visibility */
+}
+
+.banner h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 .btn {
-    background: #ff9800;
-    padding: 10px 20px;
+    background: #4CAF50; /* Primary green color */
+    padding: 12px 30px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease; /* Smooth button transition */
+}
+
+.btn:hover {
+    background-color: #388E3C; /* Darker green on hover */
 }
 
 /* About Section */
 #about {
-    padding: 40px 20px;
+    padding: 60px 20px; /* Increased padding */
 }
 
 /* Products Section */
+#products {
+    padding: 60px 20px;
+}
+
 .product-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px; /* Increased gap */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.product {
+    background: #fff; /* White product cards */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Card shadow */
+    transition: transform 0.3s ease; /* Card hover effect */
+}
+
+.product:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .product img {
-    width: 200px;
+    width: 250px; /* Increased image size */
     height: auto;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 /* Testimonials Section */
+#testimonials {
+    padding: 60px 20px;
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+#testimonials h2 {
+    margin-bottom: 30px;
+}
+
 #testimonials blockquote {
     font-style: italic;
+    font-size: 1.1em;
+    margin: 20px auto;
+    max-width: 700px;
+    color: #555;
+}
+
+/* Contact Section */
+#contact {
+    padding: 60px 20px;
 }
 
 /* Footer Styles */
 footer {
     background: #333;
     color: white;
-    padding: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .banner {
+        padding: 80px 20px;
+    }
+
+    .banner h1 {
+        font-size: 2.5em;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product img {
+        width: 80%;
+    }
 }
