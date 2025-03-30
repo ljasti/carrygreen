@@ -1,0 +1,29 @@
+@import 'variables.css';
+
+header {
+    background: var(--background-color);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    margin-top: 80px;
+}
+
+section {
+    padding: 4rem 5%;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+}

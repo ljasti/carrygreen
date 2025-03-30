@@ -1,0 +1,54 @@
+@import './variables.css';
+
+/* Animations */
+@keyframes iconFloat {
+    0% { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .collaboration-image img {
+        max-width: 220px;
+        max-height: 220px;
+    }
+
+    .feature-tile .icon img {
+        max-width: 90px;
+        max-height: 90px;
+    }
+    
+    .product-container img {
+        max-height: 140px;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+    .product-container img:hover,
+    .feature-tile .icon img:hover,
+    #additional-products img:hover,
+    .collaboration-image img:hover {
+        transform: scale(1.015);
+    }
+}
