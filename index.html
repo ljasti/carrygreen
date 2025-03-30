@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CarryGREEN - Eco-friendly biodegradable bags and sustainable products. DRDO-guided manufacturing of innovative, compostable solutions.">
+    <meta name="keywords" content="biodegradable bags, eco-friendly products, sustainable bags, DRDO collaboration">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="CarryGREEN - Sustainable Eco-Friendly Bags">
+    <meta property="og:description" content="Innovative biodegradable and compostable products for a sustainable future.">
+    <meta property="og:image" content="images/carrygreen_logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    
     <title>CarryGREEN - Sustainable Eco-Friendly Bags</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +25,9 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="images/carrygreen_logo.png" alt="CarryGREEN Logo" loading="lazy">
+            <img src="images/carrygreen_logo.png" alt="CarryGREEN Logo - Sustainable Eco-Friendly Products" loading="lazy">
         </div>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
@@ -31,22 +43,54 @@
         <!-- Banner Section -->
         <section id="home" class="banner">
             <img src="images/banner_nature.jpg" alt="Eco-Friendly Banner" width="100%" height="auto" loading="lazy">
-            <h1>Eco-Friendly Reusable Bags for a Sustainable Future</h1>
-            <p>Join the movement to eliminate single-use plastics with CarryGREEN.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
+            <h1>Protect the Planet for Future Generations</h1>
+            <p>Every product we create is a step towards a sustainable future, ensuring a cleaner planet for generations to come.</p>
+            <a href="#contact" class="btn">Join Our Mission</a>
         </section>
 
         <!-- About Us Section -->
         <section id="about">
-            <h2>About CarryGREEN</h2>
-            <p>CarryGREEN is a bio-plastics manufacturing and research company focused on creating innovative, biodegradable, and compostable products. Guided by the expertise and training provided by the Defence Research and Development Organisation (DRDO), we are committed to designing sustainable solutions that address the environmental challenges posed by single-use plastics.</p>
-            <p>Through continuous research and development, we aim to produce high-quality products that add value to the planet.</p>
-            <p>As part of our collaboration with DRDO, we leverage cutting-edge advancements in biodegradable materials to replace conventional plastic products. This partnership enables us to create eco-friendly alternatives that decompose naturally within months, ensuring minimal environmental impact.</p>
+            <h2>A Call for Environmental Protection</h2>
+            <div class="about-content">
+                <p>Carrygreen is dedicated to providing eco-friendly biodegradable products that help reduce plastic waste and promote sustainability. Our mission is to create innovative materials that are safe for the environment and contribute to a greener future.</p>
+                
+                <div class="mission-statement">
+                    <h3>Building a Sustainable Tomorrow</h3>
+                    <p>In response to the environmental challenges we face today, a growing community is dedicated to creating sustainable alternatives to mitigate ecological harm.</p>
+                </div>
+
+                <div class="drdo-collaboration">
+                    <h3>Innovation Through Collaboration</h3>
+                    <p>As part of our collaboration with DRDO, we leverage cutting-edge advancements in biodegradable materials to replace conventional plastic products. This partnership enables us to create eco-friendly alternatives that decompose naturally within months, ensuring minimal environmental impact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions">
+            <h2>Discover New Sustainable Solutions</h2>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h3>Reducing Plastic Pollution</h3>
+                    <p>Utilizing biodegradable materials reduces landfill waste and promotes a circular economy.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h3>Eco-Friendly Product Model</h3>
+                    <p>Creating products that minimize environmental impact while maximizing community benefits.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h3>Transforming the Planet</h3>
+                    <p>Start with the planet – understand its needs and create solutions that benefit both people and nature.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Products Section -->
         <section id="products">
-            <h2>Our Product Range</h2>
+            <h2>Our Eco-Friendly Initiatives</h2>
+            <p>Discover how our biodegradable products can help reduce plastic waste and promote a healthier planet.</p>
             <div class="product-container">
                <img src="images/biodegradable_bag.jpg" alt="Biodegradable Bag" loading="lazy" width="200" height="200">
                <img src="images/compostable_bag.jpg" alt="Compostable Bag" loading="lazy" width="200" height="200">
@@ -67,33 +111,36 @@
             </div>
         </section>
 
-        <!-- Solutions Section -->
-        <section id="solutions">
-            <h2>Sustainable Solutions</h2>
-
-            <!-- Sustainability Highlights -->
-            <div class="sustainability-highlights">
-                <h3>Sustainability Features:</h3>
-                <ul>
-                    <li>Environmentally Restorative</li>
-                    <li>Fully Biodegradable</li>
-                    <li>Derived from Plant-Based Materials</li>
-                    <li>Eco-Conscious Alternatives</li>
-                    <li>Breaks Down Naturally</li>
-                </ul>
-
-                <!-- DRDO Collaboration -->
-                <p><strong>Guided by DRDO:</strong> Our collaboration with DRDO empowers us to innovate eco-friendly solutions that meet global standards. DRDO’s expertise in advanced materials has been instrumental in developing biodegradable packaging that decomposes within months without harming the environment.</p>
-
-            </div>
-
-        </section>
-
         <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: support@carrygreen.com</p>
-            <p>Phone: +91-XXXXXXXXXX</p>
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <address>
+                        <p>Email: <a href="mailto:support@carrygreen.com">support@carrygreen.com</a></p>
+                        <p>Phone: <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a></p>
+                    </address>
+                </div>
+                
+                <form class="contact-form" action="/submit-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
         </section>
 
     </main>
@@ -101,6 +148,12 @@
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 CarryGREEN Pvt. Ltd. All Rights Reserved.</p>
+        <nav aria-label="Footer navigation">
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
+            </ul>
+        </nav>
     </footer>
 
     <!-- JavaScript File -->

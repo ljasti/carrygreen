@@ -1,65 +1,248 @@
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --text-color: #333;
+    --background-color: #fff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #f9f9f9;
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 /* Header Styles */
 header {
+    background: var(--background-color);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
-    padding: 20px;
 }
 
 .logo img {
-    height: 60px;
+    max-height: 60px;
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
     display: flex;
+    list-style: none;
+    gap: 2rem;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #555;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #4CAF50;
+nav a:hover {
+    color: var(--primary-color);
 }
 
-/* Banner Styles */
+/* Main Content Styles */
+main {
+    margin-top: 80px;
+}
+
+section {
+    padding: 4rem 5%;
+}
+
+/* Banner Section */
 .banner {
-    background: url('images/banner_sustainability.jpg') no-repeat center center/cover;
-    padding: 120px 20px;
+    position: relative;
+    width: 100%;
+    min-height: 80vh;  /* Increased height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: white;
 }
 
 .banner h1 {
-    font-size: 3em;
+    font-size: 3.5rem;  /* Increased size */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
 }
 
-.btn {
-    background-color: #4CAF50;
+.banner p {
+    font-size: 1rem;  /* Reduced size */
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 500px;  /* Reduced width */
+    opacity: 0.9;  /* Slightly reduced opacity */
 }
 
-/* Products Section */
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);  /* Darkens the image slightly for better text visibility */
+}
+
+.banner h1 {
+    font-size: 2.5rem;  /* Reduced from default size */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 800px;  /* Limits the width of the heading */
+}
+
+.banner p {
+    font-size: 1.1rem;  /* Adjusted size */
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 600px;  /* Limits the width of the paragraph */
+}
+
+.banner .btn {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.banner .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Product Container */
 .product-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-/* Additional Styles */
-.product img {
-   width:auto; /* Fixed missing semicolon */
+.product-container > img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-container > img:hover {
+    transform: scale(1.05);
+}
+
+/* Additional Products */
+#additional-products ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#additional-products li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#additional-products li:hover {
+    background: #e0e0e0;
+}
+
+#additional-products img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Logo */
+.logo img {
+    max-height: 60px;
+    width: auto;
+}
+
+/* Contact Form Styles */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+footer nav ul {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+footer a {
+    color: white;
 }
