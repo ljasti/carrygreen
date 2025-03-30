@@ -34,6 +34,8 @@ header {
 
 .logo img {
     max-height: 60px;
+    width: auto;
+    display: block;
 }
 
 nav ul {
@@ -53,7 +55,7 @@ nav a:hover {
     color: var(--primary-color);
 }
 
-/* Main Content Styles */
+/* Main Content */
 main {
     margin-top: 80px;
 }
@@ -74,92 +76,49 @@ section {
     text-align: center;
     padding: 2rem;
     color: white;
-    background-color: #333; /* Fallback color while image loads */
-    overflow: hidden; /* Prevent image overflow */
+    background-color: #333;
+    overflow: hidden;
 }
 
-.banner img {
+.banner::after {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: 0; /* Changed from -1 to prevent disappearing */
-    filter: brightness(0.7);
+    background-image: url('images/banner_nature.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.7;
 }
 
-.banner h1, 
-.banner p, 
+.banner h1,
+.banner p,
 .banner .btn {
     position: relative;
-    z-index: 1; /* Ensure text stays above the image */
-}
-
-/* Product Images */
-.product-container img {
-    display: block; /* Ensure proper image display */
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    background-color: #f0f0f0; /* Fallback color while loading */
+    z-index: 1;
 }
 
 .banner h1 {
-    font-size: 3.5rem;  /* Increased size */
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 800px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.leaf-icon {
+    color: var(--primary-color);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .banner p {
-    font-size: 1rem;  /* Reduced size */
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    max-width: 500px;  /* Reduced width */
-    opacity: 0.9;  /* Slightly reduced opacity */
-}
-
-.banner img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.7);  /* Darkens the image slightly for better text visibility */
-}
-
-.banner h1 {
-    font-size: 2.5rem;  /* Reduced from default size */
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 800px;  /* Limits the width of the heading */
-}
-
-.banner p {
-    font-size: 1.1rem;  /* Adjusted size */
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    max-width: 600px;  /* Limits the width of the paragraph */
-}
-
-.banner .btn {
     font-size: 1rem;
-    padding: 0.8rem 2rem;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.banner .btn:hover {
-    background-color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+    opacity: 0.9;
 }
 
 /* Product Container */
@@ -167,18 +126,33 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
 }
 
-.product-container > img {
+.product-container figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-container img {
+    display: block;
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    background-color: #f5f5f5;
 }
 
-.product-container > img:hover {
+.product-container figcaption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.product-container img:hover {
     transform: scale(1.05);
 }
 
@@ -209,15 +183,10 @@ section {
     height: 60px;
     object-fit: cover;
     border-radius: 4px;
+    display: block;
 }
 
-/* Logo */
-.logo img {
-    max-height: 60px;
-    width: auto;
-}
-
-/* Contact Form Styles */
+/* Contact Form */
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -260,7 +229,7 @@ section {
     background: var(--secondary-color);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background: #333;
     color: white;
@@ -276,3 +245,11 @@ footer nav ul {
 footer a {
     color: white;
 }
+
+3. Flexible Images:
+```css
+img {
+    max-width: 100%;
+    height: auto;
+}
+```
