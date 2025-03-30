@@ -3,6 +3,501 @@
     --secondary-color: #27ae60;
     --text-color: #333;
     --background-color: #fff;
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Header Styles */
+header {
+    background: var(--background-color);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+}
+
+section {
+    padding: 4rem 5%;
+}
+
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/banner_nature.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.banner h1,
+.banner p,
+.banner .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.leaf-icon {
+    color: var(--primary-color);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.banner p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+    opacity: 0.9;
+}
+
+/* Product Container */
+/* Product Section Enhancement */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.product-container figure {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Remove duplicate image base styles */
+/* Remove duplicate styles */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    transform: translateZ(0);
+}
+
+/* Consolidate feature tile styles */
+.feature-tile {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.feature-tile .icon {
+    animation: iconFloat 0.6s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.feature-tile .icon img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Fix feature grid layout */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Clean up collaboration section spacing */
+.collaboration-section {
+    padding: 2rem 5% 4rem;
+    margin-top: -2rem;  /* Added to reduce gap */
+}
+
+/* Remove duplicate feature tile icon styles */
+.feature-tile .icon img {
+    width: 110px;
+    height: 110px;
+    margin: 0.5rem auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove duplicate icon float animation */
+@keyframes iconFloat {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Remove duplicate feature tile icon container */
+.feature-tile .icon {
+    animation: iconFloat 0.6s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+/* Fix collaboration image sizing */
+.collaboration-image img {
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Product Container Images */
+.product-container img {
+    width: auto;
+    max-width: 85%;
+    height: 160px;
+    margin: 1.5rem auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Feature Tile Images */
+.feature-tile .icon img {
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Additional Products Images */
+#additional-products img {
+    width: 45px;
+    height: 45px;
+    margin: auto 0;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collaboration/DRDO Image */
+.collaboration-image img {
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo Image */
+.logo img {
+    width: auto;
+    height: 45px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimized hover effects */
+@media (hover: hover) {
+    .product-container img:hover,
+    .feature-tile .icon img:hover,
+    #additional-products img:hover,
+    .collaboration-image img:hover {
+        transform: scale(1.015);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .collaboration-image img {
+        max-width: 220px;
+        max-height: 220px;
+    }
+    
+    .feature-tile .icon img {
+        max-width: 90px;
+        max-height: 90px;
+    }
+    
+    .product-container img {
+        max-height: 140px;
+    }
+}
+
+/* Feature Tile Images */
+.feature-tile .icon img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: transparent;
+}
+
+/* Additional Products Images */
+#additional-products img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 0;
+    display: block;
+    background: transparent;
+}
+
+/* Logo Image */
+.logo img {
+    max-height: 60px;
+    width: auto;
+    display: block;
+    background: transparent;
+}
+
+.product-container figcaption {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.product-container figcaption h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.product-container figcaption p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.product-features {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3.5rem; /* Increased from default size */
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature h4 {
+    color: var(--text-color);
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.feature p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.product-features ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+}
+
+.product-features li {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border-radius: 50px;
+}
+
+.product-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Additional Products */
+#additional-products ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#additional-products li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#additional-products li:hover {
+    background: #e0e0e0;
+}
+
+#additional-products img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Contact Form */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+footer nav ul {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+footer a {
+    color: white;
+}
+
+3. Flexible Images:
+```css
+/* Add vendor prefixes and fallbacks */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --text-color: #333;
+    --background-color: #fff;
     --font-family: 'Poppins', sans-serif;
 }
 
@@ -138,77 +633,160 @@ section {
     transition: transform 0.3s ease;
 }
 
-/* Base image styles */
+/* Remove duplicate image base styles */
+/* Remove duplicate styles */
 img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
     background: transparent;
+    transform: translateZ(0);
+}
+
+/* Consolidate feature tile styles */
+.feature-tile {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.feature-tile .icon {
+    animation: iconFloat 0.6s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.feature-tile .icon img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Fix feature grid layout */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Clean up collaboration section spacing */
+.collaboration-section {
+    padding: 2rem 5% 4rem;
+    margin-top: -2rem;  /* Added to reduce gap */
+}
+
+/* Remove duplicate feature tile icon styles */
+.feature-tile .icon img {
+    width: 110px;
+    height: 110px;
+    margin: 0.5rem auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove duplicate icon float animation */
+@keyframes iconFloat {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Remove duplicate feature tile icon container */
+.feature-tile .icon {
+    animation: iconFloat 0.6s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+/* Fix collaboration image sizing */
+.collaboration-image img {
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Product Container Images */
 .product-container img {
     width: auto;
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 85%;
+    height: 160px;
+    margin: 1.5rem auto;
     display: block;
-    max-height: 180px;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Feature Tile Images */
 .feature-tile .icon img {
-    width: auto;
-    max-width: 120px;
-    max-height: 120px;
-    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem auto;
     display: block;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Additional Products Images */
 #additional-products img {
-    width: auto;
-    max-width: 50px;
-    max-height: 50px;
+    width: 45px;
+    height: 45px;
     margin: auto 0;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Collaboration/DRDO Image */
 .collaboration-image img {
     width: auto;
-    max-width: 350px;
-    max-height: 350px;
+    height: 300px;
     margin: 0 auto;
     display: block;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Logo Image */
 .logo img {
     width: auto;
-    max-height: 50px;
-    transition: transform 0.3s ease-out;
+    height: 45px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover effects */
-.product-container img:hover,
-.feature-tile .icon img:hover,
-#additional-products img:hover,
-.collaboration-image img:hover {
-    transform: scale(1.02);
+/* Optimized hover effects */
+@media (hover: hover) {
+    .product-container img:hover,
+    .feature-tile .icon img:hover,
+    #additional-products img:hover,
+    .collaboration-image img:hover {
+        transform: scale(1.015);
+    }
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .collaboration-image img {
-        max-width: 250px;
-        max-height: 250px;
+        max-width: 220px;
+        max-height: 220px;
     }
     
     .feature-tile .icon img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 90px;
+        max-height: 90px;
+    }
+    
+    .product-container img {
+        max-height: 140px;
     }
 }
 
@@ -216,7 +794,7 @@ img {
 .feature-tile .icon img {
     width: 150px;
     height: 150px;
-    object-fit: contain;
+    object-fit: cover;
     transition: transform 0.3s ease;
     background: transparent;
 }
@@ -416,15 +994,15 @@ img {
 
 /* Features Section - Positioned above Products */
 .features {
-    padding: 4rem 5%;
+    padding: 4rem 5% 2rem;
     background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);  /* Changed to 3 fixed columns */
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -436,158 +1014,39 @@ img {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     position: relative;
-}
-
-.feature-tile:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(46, 204, 113, 0.15);
-}
-
-.feature-tile .icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.feature-tile .icon img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.feature-tile h3 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    font-weight: 600;
     text-align: center;
 }
 
-.feature-tile p {
-    color: #555;
-    line-height: 1.6;
-    font-size: 1rem;
-    text-align: center;
-}
-
+/* Responsive adjustment for feature grid */
 @media (max-width: 768px) {
-    .features {
-        padding: 3rem 5%;
-    }
-    
     .feature-grid {
+        grid-template-columns: 1fr;  /* Stack tiles on mobile */
         gap: 1.5rem;
     }
-    
-    .feature-tile {
-        padding: 2rem;
-    }
-    
-    .feature-tile .icon img {
-        width: 120px;
-        height: 120px;
-    }
 }
 
-/* Product Container - Now positioned after features */
-.products-section {
-    margin-top: 2rem;
-}
-
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-icon {
-    width: 84px; /* Increased size */
-    height: 84px;
-    fill: var(--primary-color);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    filter: drop-shadow(0 4px 6px rgba(46, 204, 113, 0.2));
-}
-
-.feature-tile:hover .feature-icon {
-    fill: var(--secondary-color);
-    transform: scale(1.1) rotate(5deg);
-    filter: drop-shadow(0 6px 12px rgba(46, 204, 113, 0.3));
-}
-
-/* Animation for icon entrance */
-@keyframes iconFloat {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-.feature-tile .icon img {
-    width: 120px;  /* Increased from default */
-    height: 120px; /* Increased from default */
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-}
-
-.feature-tile .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-}
-
-.feature-tile:hover .icon img {
-    transform: scale(1.05);
-}
-
-/* Animation for icon entrance */
-@keyframes iconFloat {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-.feature-tile .icon {
-    animation: iconFloat 0.6s ease-out forwards;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
+/* Collaboration Section */
 .collaboration-section {
-    padding: 6rem 5%;
+    padding: 2rem 5% 4rem;  /* Reduced top padding */
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
 }
 
-.collaboration-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
 .collaboration-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;  /* Further reduced margin */
 }
 
 .collaboration-header h2 {
     font-size: 2.5rem;
     color: var(--text-color);
-    margin-top: 1rem;
+    margin: 0;  /* Remove all margins */
 }
 
+/* Remove partnership badge styles */
 .partnership-badge {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+    display: none;
 }
 
 .collaboration-grid {
