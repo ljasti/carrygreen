@@ -1,0 +1,28 @@
+/* Modern hover effects */
+.feature-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-container figure:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Optimized transitions */
+.feature-tile, 
+.product-container figure,
+nav a {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Performance optimizations */
+img {
+    will-change: transform;
+    backface-visibility: hidden;
+}
