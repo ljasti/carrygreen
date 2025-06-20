@@ -2,7 +2,7 @@
 
 header {
     background: var(--background-color);
-    padding: 2rem 5%;
+    padding: 2.5rem 5%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -11,18 +11,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 140px;
+    min-height: 180px;
 }
 
 .logo img {
-    width: 600px;
+    width: 800px;
     height: auto;
     display: block;
-    margin-right: 3rem;
+    margin-right: 4rem;
 }
 
 main {
-    margin-top: 160px;
+    margin-top: 200px;
 }
 
 section {
