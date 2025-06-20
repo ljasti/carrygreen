@@ -2,7 +2,7 @@
 
 header {
     background: var(--background-color);
-    padding: 2rem 3%;
+    padding: 3rem 3%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -11,28 +11,32 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 180px;
+    min-height: 300px;
 }
 
 .logo {
     flex: 0 0 auto;
-    width: 70%;
+    width: 80%;
     padding-right: 2rem;
+    overflow: visible;
 }
 
 .logo img {
-    width: 100%;
-    height: auto;
+    width: 800px;
+    height: 300px;
     display: block;
+    object-fit: contain;
+    transform: scale(1.2);
+    transform-origin: left center;
 }
 
 nav {
     flex: 0 0 auto;
-    width: 30%;
+    width: 20%;
 }
 
 main {
-    margin-top: 200px;
+    margin-top: 320px;
 }
 
 section {
