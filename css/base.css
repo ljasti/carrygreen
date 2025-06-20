@@ -24,7 +24,6 @@ body {
 }
 
 img {
-    max-width: 100%;
     height: auto;
     object-fit: contain;
     background: transparent;
@@ -32,6 +31,10 @@ img {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: block;
+}
+
+.logo img {
+    max-width: none;
 }
 
 .btn {
