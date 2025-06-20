@@ -2,7 +2,7 @@
 
 header {
     background: var(--background-color);
-    padding: 2.5rem 5%;
+    padding: 2rem 3%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -14,11 +14,21 @@ header {
     min-height: 180px;
 }
 
+.logo {
+    flex: 0 0 auto;
+    width: 70%;
+    padding-right: 2rem;
+}
+
 .logo img {
-    width: 800px;
+    width: 100%;
     height: auto;
     display: block;
-    margin-right: 4rem;
+}
+
+nav {
+    flex: 0 0 auto;
+    width: 30%;
 }
 
 main {
