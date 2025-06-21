@@ -1,5 +1,23 @@
 @import './variables.css';
 
+/* About Section */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
 /* Feature Tiles */
 .feature-tile {
     background: var(--background-color);
