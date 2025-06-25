@@ -25,6 +25,11 @@ header {
     height: 80px;
     display: block;
     transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 nav {
