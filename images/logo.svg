@@ -1,0 +1,14 @@
+<svg width="200" height="80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e67e22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d35400;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <g>
+    <text x="10" y="50" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="url(#logoGrad)">AMROT</text>
+    <text x="10" y="70" font-family="Arial, sans-serif" font-size="12" fill="#333">Fuels Every Age, Every Day</text>
+    <circle cx="170" cy="30" r="20" fill="url(#logoGrad)" />
+    <path d="M160,30 L180,30 M170,20 L170,40" stroke="white" stroke-width="3" />
+  </g>
+</svg>
