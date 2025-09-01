@@ -189,12 +189,91 @@
     margin-bottom: 1.5rem;
 }
 
+/* Products Section */
+.products-section {
+    background-color: var(--light-bg-color);
+}
+
+.products-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-details {
+    padding: 1.5rem;
+}
+
+.product-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.product-details p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.product-highlights {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.product-highlights li {
+    padding: 0.5rem 0;
+    border-top: 1px solid #eee;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.product-highlights li:first-child {
+    border-top: none;
+}
+
 @media (max-width: 768px) {
     .marketing-options,
     .ingredients-grid,
     .nutrition-grid,
     .benefits-grid,
-    .considerations-grid {
+    .considerations-grid,
+    .products-grid {
         grid-template-columns: 1fr;
     }
 }

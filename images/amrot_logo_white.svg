@@ -1,0 +1,13 @@
+<svg width="300" height="120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .script-font { font-family: 'Brush Script MT', cursive; }
+    .tagline-font { font-family: 'Arial', sans-serif; font-style: italic; }
+  </style>
+  <g>
+    <!-- Main Amrot text in white script font -->
+    <text x="10" y="70" class="script-font" font-size="80" font-weight="bold" fill="#FFFFFF">Amrot</text>
+    
+    <!-- Tagline in light gray italic font -->
+    <text x="85" y="100" class="tagline-font" font-size="20" fill="#CCCCCC">fuels every age, every day</text>
+  </g>
+</svg>
