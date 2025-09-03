@@ -68,7 +68,7 @@ main {
 }
 
 section {
-    padding: var(--section-padding);
+    padding: 2rem 5% !important; /* Direct override for tighter spacing */
 }
 
 /* Fixed Banner with Better Image Display */
@@ -88,10 +88,10 @@ section {
 
 .banner-background {
     position: absolute;
-    top: 0;
+    top: -80px; /* Move background up to account for header height */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 80px); /* Increase height to compensate for the top offset */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -191,13 +191,14 @@ section {
 footer {
     background-color: #333;
     color: white;
-    padding: 3rem 5% 1rem;
+    padding: 1rem 5% 0.5rem; /* Much smaller footer */
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Reduced gap between elements */
     max-width: var(--max-width);
     margin: 0 auto;
 }
@@ -209,10 +210,16 @@ footer {
 
 .footer-links ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Keep all links in one line */
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-links ul li {
-    margin-bottom: 0.5rem;
+    margin: 0; /* Remove margin since we're using flexbox */
 }
 
 .footer-links ul li a {
@@ -223,10 +230,20 @@ footer {
     color: var(--primary-color);
 }
 
+.footer-contact {
+    text-align: center;
+}
+
+.footer-contact p {
+    margin: 0.2rem 0; /* Minimal margins between contact lines */
+    font-size: 0.9rem; /* Slightly smaller font */
+    color: #bbb; /* Lighter color for secondary info */
+}
+
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    margin-top: 2rem;
+    padding-top: 0.5rem; /* Much smaller spacing */
+    margin-top: 0.5rem; /* Much smaller spacing */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

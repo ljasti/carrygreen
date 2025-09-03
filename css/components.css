@@ -133,7 +133,7 @@
 /* Products Section */
 .products-section {
     background-color: var(--light-bg-color);
-    padding: 4rem 5%;
+    padding: 2rem 5% !important; /* Reduced padding for tighter spacing */
 }
 
 .products-content {
@@ -292,7 +292,7 @@
 /* FAQ Section Styles */
 .faq-section {
     background-color: var(--background-color);
-    padding: 4rem 5%;
+    padding: 2rem 5% !important; /* Reduced padding for tighter spacing */
 }
 
 .faq-content {
@@ -388,7 +388,7 @@
     
     .products-section,
     .faq-section {
-        padding: 3rem 5%;
+        padding: 2rem 5% !important; /* Reduced padding for tighter spacing */
     }
 }
 

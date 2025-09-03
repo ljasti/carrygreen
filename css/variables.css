@@ -12,5 +12,5 @@
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --border-radius: 8px;         /* Reduced from 16px for a more modern look */
     --max-width: 1200px;
-    --section-padding: 5rem 5%;
+    --section-padding: 3rem 5%;   /* Reduced from 5rem to 3rem for tighter spacing */
 }
