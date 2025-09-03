@@ -12,6 +12,22 @@ header {
     z-index: 100;
 }
 
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -55,9 +71,11 @@ section {
     padding: var(--section-padding);
 }
 
+/* Fixed Banner with Better Image Display */
 .banner {
     position: relative;
-    height: 80vh;
+    height: 100vh;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,6 +83,7 @@ section {
     text-align: center;
     color: white;
     padding: 2rem;
+    overflow: hidden;
 }
 
 .banner-background {
@@ -74,22 +93,39 @@ section {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     filter: brightness(0.85);
     z-index: -1;
 }
 
+.banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .banner h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .banner p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     max-width: 800px;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.banner-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .about-section,
@@ -110,6 +146,46 @@ section {
 .contact-content {
     max-width: 1000px;
     margin: 0 auto;
+}
+
+/* Considerations Section - Made Smaller and Less Visible */
+.considerations-section {
+    background-color: #f8f9fa;
+    padding: 2rem 5%;
+    border-top: 1px solid #e9ecef;
+}
+
+.considerations-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.considerations-title {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.considerations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.consideration-item {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #ffc107;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.consideration-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 footer {
@@ -154,27 +230,85 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+    .banner {
+        height: 90vh;
     }
     
-    .logo {
-        margin-bottom: 1rem;
+    header {
+        padding: 1rem 3%;
+    }
+    
+    section {
+        padding: 3rem 3%;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
     
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        padding: 1rem 0;
     }
     
     nav ul li {
-        margin: 0.5rem;
+        margin: 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #f0f0f0;
     }
     
     .banner {
-        height: 60vh;
+        height: 80vh;
+        min-height: 500px;
+    }
+    
+    .banner-background {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 1rem 5%;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+    
+    .banner {
+        height: 70vh;
+        min-height: 450px;
+        padding: 1rem;
     }
     
     .banner h1 {
@@ -183,5 +317,42 @@ footer {
     
     .banner p {
         font-size: 1rem;
+    }
+    
+    .banner-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    section {
+        padding: 2rem 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .banner h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner p {
+        font-size: 0.9rem;
+    }
+    
+    header {
+        padding: 0.8rem 3%;
+    }
+    
+    section {
+        padding: 1.5rem 3%;
     }
 }

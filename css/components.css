@@ -101,104 +101,58 @@
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 2rem;
 }
 
-.benefit-item {
-    display: flex;
-    align-items: flex-start;
+.benefit-card {
     background-color: var(--light-bg-color);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    text-align: center;
 }
 
-.benefit-item:hover {
+.benefit-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
 }
 
 .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    flex-shrink: 0;
 }
 
-.considerations-title {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.considerations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.consideration-item {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--light-bg-color);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.consideration-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-}
-
-.consideration-icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    flex-shrink: 0;
-}
-
-/* Summary Section */
-.summary-section {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.summary-content {
-    text-align: center;
-}
-
-.summary-content h2 {
-    color: white;
-}
-
-.summary-text {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto 0;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
+.benefit-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 /* Products Section */
 .products-section {
     background-color: var(--light-bg-color);
+    padding: 4rem 5%;
+}
+
+.products-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.products-content h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 .products-intro {
-    max-width: 800px;
-    margin: 0 auto 2rem;
     text-align: center;
     font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--text-color);
 }
 
 .products-grid {
@@ -225,6 +179,7 @@
     box-shadow: var(--shadow-lg);
 }
 
+/* Enhanced Product Image Container - Hides Diamond Symbols */
 .product-image {
     height: 220px;
     overflow: hidden;
@@ -235,6 +190,19 @@
     justify-content: center;
 }
 
+/* Hide any diamond symbols or watermarks in images */
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .product-image::after {
     content: '';
     position: absolute;
@@ -243,7 +211,7 @@
     right: 0;
     height: 30px;
     background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
-    z-index: 1;
+    z-index: 3;
 }
 
 .product-image img {
@@ -251,6 +219,21 @@
     max-height: 100%;
     object-fit: contain;
     transition: transform 0.5s ease;
+    filter: contrast(1.1) saturate(1.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Mask any diamond symbols that might appear in corners */
+.product-image img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--light-bg-color) 50%, transparent 50%);
+    z-index: 4;
 }
 
 .product-card:hover .product-image img {
@@ -305,6 +288,84 @@
     border-top: none;
 }
 
+/* FAQ Section Styles */
+.faq-section {
+    background-color: var(--background-color);
+    padding: 4rem 5%;
+}
+
+.faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-content h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background-color: var(--light-bg-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-answer.active {
+    padding: 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .marketing-options,
     .ingredients-grid,
@@ -313,5 +374,42 @@
     .considerations-grid,
     .products-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+    
+    .product-details {
+        padding: 1.5rem;
+    }
+    
+    .products-section,
+    .faq-section {
+        padding: 3rem 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        gap: 1rem;
+    }
+    
+    .product-image {
+        height: 180px;
+    }
+    
+    .product-details {
+        padding: 1rem;
+    }
+    
+    .product-details h3 {
+        font-size: 1.2rem;
+    }
+    
+    .faq-question,
+    .faq-answer {
+        padding: 1rem;
     }
 }

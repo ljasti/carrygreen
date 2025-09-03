@@ -1,22 +1,118 @@
 // Amrot Website JavaScript
 
+// Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Create mobile navigation toggle if it doesn't exist
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    
+    if (!document.querySelector('.nav-toggle')) {
+        const navToggle = document.createElement('div');
+        navToggle.className = 'nav-toggle';
+        navToggle.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(navToggle);
+        
+        navToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+    
+    // Close mobile nav when clicking on links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('active');
+            document.querySelector('.nav-toggle').classList.remove('active');
+        });
+    });
+    
+    // FAQ Functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const isActive = this.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqQuestions.forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                this.classList.add('active');
+                answer.classList.add('active');
+            }
+        });
+    });
+    
     // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const targetSection = document.querySelector(targetId);
             
-            if (targetElement) {
+            if (targetSection) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Offset for header
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
+    
+    // Performance optimization: Lazy loading for images
+    const images = document.querySelectorAll('img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+    
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+});
+
+// Performance: Debounced scroll handler
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    
+    scrollTimeout = setTimeout(function() {
+        const scrolled = window.pageYOffset;
+        const header = document.querySelector('header');
+        
+        if (scrolled > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = 'white';
+            header.style.backdropFilter = 'none';
+        }
+    }, 10);
+});
     
     // Form submission handling
     const contactForm = document.querySelector('.contact-form');
