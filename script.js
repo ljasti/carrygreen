@@ -91,29 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
     });
-});
 
-// Performance: Debounced scroll handler
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-    if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-    }
-    
-    scrollTimeout = setTimeout(function() {
-        const scrolled = window.pageYOffset;
-        const header = document.querySelector('header');
-        
-        if (scrolled > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = 'white';
-            header.style.backdropFilter = 'none';
-        }
-    }, 10);
-});
-    
     // Form submission handling
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
@@ -150,4 +128,25 @@ window.addEventListener('scroll', function() {
     // Add active class to navigation links on page load and scroll
     updateActiveNavLink();
     window.addEventListener('scroll', updateActiveNavLink);
+});
+
+// Performance: Debounced scroll handler
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    
+    scrollTimeout = setTimeout(function() {
+        const scrolled = window.pageYOffset;
+        const header = document.querySelector('header');
+        
+        if (scrolled > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = 'white';
+            header.style.backdropFilter = 'none';
+        }
+    }, 10);
 });

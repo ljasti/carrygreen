@@ -203,16 +203,17 @@
     pointer-events: none;
 }
 
-.product-image::after {
+/* Remove the ::after pseudo-element that was cutting off the image */
+/* .product-image::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
     right: 0;
-    height: 30px;
-    background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-bg-color);
     z-index: 3;
-}
+} */
 
 .product-image img {
     max-width: 100%;
@@ -224,17 +225,17 @@
     z-index: 1;
 }
 
-/* Mask any diamond symbols that might appear in corners */
-.product-image img::after {
+/* Remove this incorrect selector that doesn't work */
+/* .product-image img::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--light-bg-color) 50%, transparent 50%);
+    background: var(--light-bg-color);
     z-index: 4;
-}
+} */
 
 .product-card:hover .product-image img {
     transform: scale(1.05);
@@ -411,5 +412,90 @@
     .faq-question,
     .faq-answer {
         padding: 1rem;
+    }
+}
+
+/* Summary Section Styles */
+.summary-highlights {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--light-bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: var(--shadow-sm);
+    line-height: 1.6;
+    border-left: 4px solid var(--primary-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Highlight items styling */
+.highlight-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.highlight-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    font-style: normal;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Individual icon styles */
+.highlight-item:nth-child(1) .highlight-icon {
+    background-image: url('https://as1.ftcdn.net/jpg/02/46/04/36/1000_F_246043697_QPSoYCdxu3Gee034XzBnS0gU3B1AHYtY.jpg');
+}
+
+.highlight-item:nth-child(2) .highlight-icon {
+    background-image: url('https://image.pngaaa.com/694/7546694-middle.png');
+}
+
+.highlight-item:nth-child(3) .highlight-icon {
+    background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/egg-free-icon.svg');
+}
+
+.highlight-item:nth-child(4) .highlight-icon {
+    background-image: url('https://cdn3.iconfinder.com/data/icons/eco-food-and-cosmetic-labels-3/128/soy_free_1-2-512.png');
+}
+
+.highlight-item:nth-child(5) .highlight-icon {
+    background-image: url('https://img.freepik.com/premium-vector/no-added-preservatives-icon-chemical-artificial-free-food-no-additives-vector-symbol-logo_662353-733.jpg');
+}
+
+@media (max-width: 768px) {
+    .highlight-item {
+        display: flex;
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    
+    .summary-highlights {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
 }
