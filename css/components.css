@@ -523,3 +523,24 @@
         text-align: left;
     }
 }
+
+/* Accessible, modern focus styles for links */
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Remove outline for mouse clicks, keep for keyboards via :focus-visible */
+a:focus {
+	outline: none;
+}
+
+a:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Clear, non-intrusive keyboard focus indicator */
+a:focus-visible {
+	outline: none;
+	box-shadow: inset 0 -2px 0 var(--primary-color);
+	border-radius: 0;
+}
