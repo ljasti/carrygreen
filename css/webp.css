@@ -1,0 +1,49 @@
+/* WebP support styles */
+
+/* For product images */
+.webp .product-image {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Specific product backgrounds - these will be applied when WebP is supported */
+.webp .product-image img[src*="amrot-classic.png"] {
+    content: url("../images/webp/amrot-classic.webp");
+}
+
+.webp .product-image img[src*="amrot-chocolate.png"] {
+    content: url("../images/webp/amrot-chocolate.webp");
+}
+
+.webp .product-image img[src*="amrot-guava.png"] {
+    content: url("../images/webp/amrot-guava.webp");
+}
+
+.webp .product-image img[src*="amrot-coffee.png"] {
+    content: url("../images/webp/amrot-coffee.webp");
+}
+
+.webp .product-image img[src*="amrot-spicy.png"] {
+    content: url("../images/webp/amrot-spicy.webp");
+}
+
+.webp .product-image img[src*="amrot-lemon.png"] {
+    content: url("../images/webp/amrot-lemon.webp");
+}
+
+.webp .product-image img[src*="amrot-elachi.png"] {
+    content: url("../images/webp/amrot-elachi.webp");
+}
+
+.webp .product-image img[src*="amrot-beetroot.png"] {
+    content: url("../images/webp/amrot-beetroot.webp");
+}
+
+/* Banner image fallback */
+.webp .banner-section {
+    background-image: url("../images/webp/banner_nature.webp");
+}
+
+.no-webp .banner-section {
+    background-image: url("../images/banner_nature.png");
+}

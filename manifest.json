@@ -1,0 +1,23 @@
+{
+  "name": "Amrot - Fuels Every Age, Every Day",
+  "short_name": "Amrot",
+  "description": "Premium superfood blend made with multi-grains, millets, pulses, nuts, and seeds",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e67e22",
+  "icons": [
+    {
+      "src": "images/svg/amrot_logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "images/amrot_logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
