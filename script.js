@@ -92,11 +92,27 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
 
+    // Phone field validation - only allow numbers and + character
+    const phoneInput = document.querySelector('#phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            // Remove any characters that are not numbers or +
+            this.value = this.value.replace(/[^0-9+]/g, '');
+        });
+    }
+
     // Form submission handling
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate phone number format if provided
+            const phoneValue = phoneInput.value.trim();
+            if (phoneValue && !/^[+]?[0-9]+$/.test(phoneValue)) {
+                alert('Please enter a valid phone number (only numbers and + are allowed).');
+                return;
+            }
             
             // In a real implementation, you would send the form data to a server
             // For this demo, we'll just show a success message
