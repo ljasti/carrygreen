@@ -27,26 +27,121 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // FAQ Functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            const isActive = this.classList.contains('active');
+    // FAQ Functionality - Complete rewrite with direct DOM manipulation for Opera compatibility
+    function initFAQ() {
+        try {
+            // Get all FAQ items
+            const faqItems = document.querySelectorAll('.faq-item');
+            if (!faqItems || faqItems.length === 0) return;
             
-            // Close all other FAQ items
-            faqQuestions.forEach(q => {
-                q.classList.remove('active');
-                q.nextElementSibling.classList.remove('active');
+            // First, completely reset all FAQ items and hide all answers
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                if (question) question.classList.remove('active');
+                if (answer) {
+                    answer.classList.remove('active');
+                    answer.style.display = 'none';
+                    answer.style.height = '0';
+                    answer.style.opacity = '0';
+                    answer.style.padding = '0';
+                }
             });
             
-            // Toggle current item
-            if (!isActive) {
-                this.classList.add('active');
-                answer.classList.add('active');
-            }
-        });
+            // Remove all existing event listeners by replacing elements
+            faqItems.forEach(item => {
+                const oldQuestion = item.querySelector('.faq-question');
+                if (!oldQuestion) return;
+                
+                // Create a completely new element
+                const newQuestion = document.createElement('div');
+                newQuestion.className = oldQuestion.className;
+                newQuestion.innerHTML = oldQuestion.innerHTML;
+                newQuestion.setAttribute('style', oldQuestion.getAttribute('style') || '');
+                
+                // Replace the old question with the new one
+                if (oldQuestion.parentNode) {
+                    oldQuestion.parentNode.replaceChild(newQuestion, oldQuestion);
+                }
+                
+                // Add a direct onclick handler (most compatible approach)
+                newQuestion.onclick = function(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    
+                    const answer = this.nextElementSibling;
+                    if (!answer) return;
+                    
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other FAQ items first
+                    faqItems.forEach(otherItem => {
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        
+                        if (otherQuestion && otherQuestion !== this && otherAnswer) {
+                            otherQuestion.classList.remove('active');
+                            otherAnswer.classList.remove('active');
+                            otherAnswer.style.display = 'none';
+                            otherAnswer.style.height = '0';
+                            otherAnswer.style.opacity = '0';
+                            otherAnswer.style.padding = '0';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isActive) {
+                        // Close this item
+                        this.classList.remove('active');
+                        answer.classList.remove('active');
+                        answer.style.height = '0';
+                        answer.style.opacity = '0';
+                        answer.style.padding = '0';
+                        
+                        // Use setTimeout to ensure the transition is complete before hiding
+                        setTimeout(function() {
+                            answer.style.display = 'none';
+                        }, 300);
+                    } else {
+                        // Open this item
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                        answer.style.display = 'block';
+                        
+                        // Force reflow before setting height
+                        void answer.offsetWidth;
+                        
+                        // Set properties for open state
+                        answer.style.height = 'auto';
+                        answer.style.opacity = '1';
+                        answer.style.padding = '1.5rem';
+                    }
+                    
+                    return false; // Prevent any default behavior
+                };
+            });
+            
+            // DO NOT open any FAQ item by default - all should be closed initially
+            // Removed the code that automatically opens the first FAQ item
+            
+            console.log('FAQ initialization complete - all items closed by default');
+        } catch (error) {
+            console.error('Error initializing FAQ:', error);
+        }
+    }
+    
+    // Initialize FAQ when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initFAQ);
+    
+    // Also initialize when window is fully loaded (backup)
+    window.addEventListener('load', function() {
+        console.log('Window loaded, initializing FAQ again');
+        initFAQ();
     });
+
     
     // Smooth scrolling for navigation links
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');

@@ -324,6 +324,12 @@
     font-weight: 600;
     color: var(--primary-color);
     transition: var(--transition);
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    touch-action: manipulation; /* Optimize for touch */
+    position: relative; /* Ensure proper stacking context */
+    z-index: 2; /* Higher than answer */
+    user-select: none; /* Prevent text selection when clicking */
+    outline: none; /* Remove focus outline for better aesthetics */
 }
 
 .faq-question:hover {
@@ -333,8 +339,12 @@
 
 .faq-question::after {
     content: '+';
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
     transition: transform 0.3s ease;
+    display: inline-block; /* Ensure it's properly displayed in all browsers */
+    margin-left: 10px; /* Add some spacing */
+    color: inherit; /* Match parent color */
 }
 
 .faq-question.active::after {
@@ -342,15 +352,12 @@
 }
 
 .faq-answer {
-    padding: 0 1.5rem;
-    max-height: 0;
+    /* All styles will be set directly via JavaScript */
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .faq-answer.active {
-    padding: 1.5rem;
-    max-height: 200px;
+    /* All styles will be set directly via JavaScript */
 }
 
 .faq-answer p {
@@ -413,7 +420,24 @@
     .faq-answer {
         padding: 1rem;
     }
+    
+    /* Enhanced mobile styles for FAQ */
+    .faq-question {
+        min-height: 44px; /* Minimum touch target size for iOS */
+        font-size: 1rem;
+    }
+    
+    .faq-question::after {
+        font-size: 1.8rem; /* Larger + symbol for better visibility */
+        padding: 0 0.5rem; /* Larger touch target for the + symbol */
+    }
+    
+    .faq-answer.active {
+        max-height: 600px; /* Even more space for answers on small screens */
+    }
 }
+
+/* No browser-specific fixes needed with the new implementation */
 
 /* Summary Section Styles */
 .summary-highlights {
